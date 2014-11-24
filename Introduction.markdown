@@ -1,17 +1,37 @@
 # Giới thiệu
 WC cho phép integrate rất sâu vào hệ thống của họ. Để làm được điều đó, họ tạo ra các inteface, abstract class cho phép ta implement, extend để phụ vụ cho các tác vụ riêng của chúng ta.
 
-Chúng ta có thể hình dung folow chúng ta cần làm như sau:
+**Vấn đề**
 
-- Kế thừa các abstract class cần thiết từ WC.
-- Add hook để cung cấp tên các class vừa tạo.
+Giả như chúng ta sử dụng luôn order và product của WC hoặc chỉ dùng hệ thống của riêng mình thì không có gì để nói, vấn đề của chúng ta là chúng ta không muốn phụ thuộc 100% vào WC, nếu khách hàng không cài WC thì hệ thống của chúng ta vẫn hoạt động được. Và khi họ cài WC, thì chúng ta sử dụng các tính năng được WC cung cấp để mở rộng khả năng trên hệ thống của chúng ta.
+
+**Giải pháp**
+
+Vì vậy các bạn có thể hình dung những gì chúng ta cần làm như sau :
+
+    1. Chúng ta xây dựng hệ thống của riêng mình.
+    2. Xây dựng các class trung gian để map các class của chúng ta với class của WC.
+    3. Add phương thức vào các hook để báo cho WC biết về các class trung gian này. 
+
+**Scope**
+
+Trong phạm vi của bài viết này, mình sẽ lấy ví dụ từ hệ thống payment của theme Classified. Trong hệ thống này có các định nghĩa như sau
+
+    - **payment** : Một order của khách hàng.
+    - **Package** : Một gói ad mà người dùng muốn mua
+    - **PaymentGateway** : Một cổng thanh toán
 
 # Các class cần kế thừa
 
 Chức năng chính của WC là thanh toán, vì vậy nó có hai đối tượng mà chúng ta quan tâm nhất là order và product.
 
 ## WC_Abstract_Order
-Class này dùng để thể hiện một Order. Nó chứa dữ liệu order kèm theo các phương thức xử lý order. Chúng ta cần extend class này và code cho
+
+Class này dùng để thể hiện một Order. Nó chứa dữ liệu order kèm theo các phương thức xử lý order.
+ 
+Chúng ta phải extend class này, đồng thời phải thêm một thuộc tính có kiê
+
 ## WC_Product
+
 Class này thể hiện một product. Chứa dữ liệu và các phương thức xử lý product.
 
