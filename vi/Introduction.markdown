@@ -13,13 +13,15 @@ Vì vậy các bạn có thể hình dung những gì chúng ta cần làm như 
     2. Xây dựng các class trung gian để map các class của chúng ta với class của WC.
     3. Add phương thức vào các hook để báo cho WC biết về các class trung gian này. 
 
+Sau khi add các hook này, WC sẽ có thể không sử dụng các class order và product mặc định của họ nữa, mà thay vào đó là các class chúng ta mói tạo ra. Điều này cho phép chúng ta tích hợp rất sâu vào hệ thống của họ.
+
 **Scope**
 
-Trong phạm vi của bài viết này, mình sẽ lấy ví dụ từ hệ thống payment của theme Classified. Trong hệ thống này có các định nghĩa như sau
+Trong phạm vi của bài viết này, mình sẽ lấy ví dụ từ hệ thống payment của theme ClassifiedEngine ( CE ). Trong hệ thống này có các định nghĩa như sau
 
-    - **payment** : Một order của khách hàng.
-    - **Package** : Một gói ad mà người dùng muốn mua
-    - **PaymentGateway** : Một cổng thanh toán
+    - payment : Một order của khách hàng.
+    - Package : Một gói ad mà người dùng muốn mua
+    - PaymentGateway : Một cổng thanh toán
 
 # Các class cần kế thừa
 
@@ -27,11 +29,9 @@ Chức năng chính của WC là thanh toán, vì vậy nó có hai đối tư�
 
 ## WC_Abstract_Order
 
-Class này dùng để thể hiện một Order. Nó chứa dữ liệu order kèm theo các phương thức xử lý order.
- 
-Chúng ta phải extend class này, đồng thời phải thêm một thuộc tính có kiê
+Class này dùng để thể hiện một Order. Nó chứa các thuộc tính của một order kèm theo các phương thức xử lý order.
+Class này tương ứng với class payment trong hệ thống của CE.
 
 ## WC_Product
 
-Class này thể hiện một product. Chứa dữ liệu và các phương thức xử lý product.
-
+Class này thể hiện một product. Chứa dữ liệu và các phương thức xử lý product. Class này tương ứng với Package trong CE

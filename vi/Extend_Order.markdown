@@ -1,0 +1,1 @@
+#Extend class WC_Abstract_Order
