@@ -64,3 +64,16 @@ if (class_exists("WooCommerce")) {
 	}
 }
 ```
+
+Đồng thời trong class CE_Payment_Factory, bạn cũng phải thêm một trường hợp đặt biệt để có thể sử dụng visitor này :
+
+```php
+if (class_exists("WooCommerce")) {
+	$available_payment_gateways = WooCommerce::instance()->payment_gateways()->get_available_payment_gateways();
+	$paymentType_lower = strtolower($paymentType);
+	if (array_key_exists($paymentType_lower, $available_payment_gateways)) {
+		$class = new ET_WC_Payment_IntegrateVisitor($paymentType);
+		return apply_filters('et_factory_build_payment_visitor', $class, $paymentType, $order);
+	}
+}
+```
