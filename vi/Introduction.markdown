@@ -10,7 +10,7 @@ Giả như chúng ta sử dụng luôn order và product của WC hoặc chỉ d
 Vì vậy các bạn có thể hình dung những gì chúng ta cần làm như sau :
 
     1. Chúng ta xây dựng hệ thống của riêng mình.
-    2. Xây dựng các class trung gian để map các class của chúng ta với class của WC.
+    2. Xây dựng các class trung gian để map các class của chúng ta với class của WC. Một bên của các class này là dữ liệu của chúng ta, bên còn lại là các phương thức phục vụ cho WC
     3. Add phương thức vào các hook để báo cho WC biết về các class trung gian này. 
 
 Sau khi add các hook này, WC sẽ có thể không sử dụng các class order và product mặc định của họ nữa, mà thay vào đó là các class chúng ta mói tạo ra. Điều này cho phép chúng ta tích hợp rất sâu vào hệ thống của họ.

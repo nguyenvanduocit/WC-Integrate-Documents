@@ -11,7 +11,7 @@ Class này tương ứng với class ET_AdOrder trong CE.
 
 ## Extend
 
-Mục đích chúng ta cần extend class này là để map các thuộc tính của package với thuộc tính của product để WC có thể sử dụng được. Chúng ta override lại các phương thức để thay vì xử lý dữ liệu trên product thì giờ ta xử lý lại trên package theo bussiness riêng.
+Mục đích chúng ta cần extend class này là để map các thuộc tính của AEorder với thuộc tính của wc_order để WC có thể sử dụng được. Chúng ta override lại các phương thức để thay vì xử lý dữ liệu trên product thì giờ ta xử lý lại trên package theo bussiness riêng.
 
 ```PHP
 if(class_exists("WooCommerce")):
@@ -68,8 +68,6 @@ if(class_exists("WooCommerce")):
                    break;
            }
            $this->etOrder->post_status = $this->post_status;
-           $log = new WC_Logger();
-           $log->add('paypal', "Our Debug : " . $this->post_status);
            wp_update_post(array('ID' => $this->etOrder->ID, 'post_status' => $this->post_status));
        }
     }
@@ -90,4 +88,3 @@ Dưới đây chỉ là một vài phương thức cơ bản, khi extend cần o
 | update_status($new_status, $note = '') 	| string , string 	| void                     	| Cập nhật trạng thái của order               	|
 | get_items($type = '')                  	| string          	| array                    	| Lấy tất cả các product item trong một order 	|
 | get_total()                            	| null            	| int                      	| lấy giá trị của order                       	|
-
