@@ -8,7 +8,7 @@ Khởi nguyên của dòng lưu chuyển bắt đầu từ ``gateway->process_pa
 
 Lúc này WC sẽ gọi tới phương thức ``WC_Order_Factory->get_order()`` để tạo một đối tượng có class kế thừa class ``WC_Abstract_Order``.
 
-Trong phương thức ``WC_Order_Factory->get_order()``, WC sẽ gọi tới filter ``woocommerce_order_class`` để lấy tên của class, phù hợp với tên class của order.
+Trong phương thức ``WC_Order_Factory->get_order()``, WC sẽ tìm cách tạo đối tượng phù hợp với type của order vừa được truyền vào, WC sẽ gọi tới filter ``woocommerce_order_class`` để lấy tên của class, phù hợp với tên class của order.
 
 Chúng ta add phương thức vào filter ``woocommerce_order_class`` để trả về tên của class`` ET_WC_Order``.
 
