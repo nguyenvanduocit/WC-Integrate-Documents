@@ -84,8 +84,10 @@ Cũng vì lý do integrate, vì vậy class này xem như là cầu nối, một
 
 Dưới đây chỉ là một vài phương thức cơ bản, khi extend cần override các phương thức này để xử lý dữ liệu theo cách của chúng ta.
 
-|       Tên       	| Tham số 	| Giá trị trả về 	| Mô tả                                      	|
-|:---------------:	|---------	|----------------	|--------------------------------------------	|
-| get_post_data() 	| null    	| WP_Post        	| Trả về đối tượng post chứa dữ liệu về post 	|
-| get_permalink() 	| null    	| String         	| Lấy url trỏ đến product                    	|
-|   is_virtual()  	| null    	| boolean          	| Kiểu của product, vd : simple, variable    	|
+|                   Tên                  	| Tham số         	| Giá trị trả về           	| Mô tả                                       	|
+|:--------------------------------------:	|-----------------	|--------------------------	|---------------------------------------------	|
+| get_product_from_item($item)           	| mixed           	| Đối tượng "like" product 	| Lấy đối tượng kiểu product                  	|
+| update_status($new_status, $note = '') 	| string , string 	| void                     	| Cập nhật trạng thái của order               	|
+| get_items($type = '')                  	| string          	| array                    	| Lấy tất cả các product item trong một order 	|
+| get_total()                            	| null            	| int                      	| lấy giá trị của order                       	|
+
